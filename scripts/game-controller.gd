@@ -1,11 +1,10 @@
 @icon("res://dev/godot-icons/node_2D/icon_gear.png")
 extends Node2D
 
-# TODO: Change this for an enum paired with Custom Data Layers 
-# in the TileSet
-const TILE_WALL_ATLAS_COORD := Vector2i(8, 7)
-const TILE_FLOOR_ATLAS_COORD := Vector2i(3, 2)
-const TILE_FLOOR_ATLAS_EMPTY := Vector2i(-1, -1)
+enum TileType {
+	FLOOR = 1,
+	WALL,
+}
 
 var tile_map_layer: TileMapLayer
 var marker: Node2D
@@ -16,12 +15,15 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	if Input.is_action_pressed("select_target"):
-		var selected_tile_position = tile_map_layer.local_to_map(marker.position)
+		var selected_tile_position := tile_map_layer.local_to_map(marker.position)
+		var tile_data := tile_map_layer.get_cell_tile_data(selected_tile_position)
 		
-		print(tile_map_layer.get_cell_atlas_coords(selected_tile_position))
-		var atlas_coords = tile_map_layer.get_cell_atlas_coords(selected_tile_position)
+		if not tile_data:
+			return
 		
-		if atlas_coords != TILE_FLOOR_ATLAS_COORD and atlas_coords != TILE_FLOOR_ATLAS_EMPTY:
+		var cell_type: int = tile_data.get_custom_data("Type")
+		
+		if cell_type == TileType.WALL:
 			var cells := _get_adyacent_cells(selected_tile_position)
 			tile_map_layer.set_cells_terrain_connect(cells, 0, 0, false)
 			
