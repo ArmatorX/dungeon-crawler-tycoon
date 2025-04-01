@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=4 uid="uid://epaxu8l81w1"]
+[gd_scene load_steps=8 format=4 uid="uid://epaxu8l81w1"]
 
 [ext_resource type="Script" uid="uid://cgt50cndfm22w" path="res://scripts/icon-swap/scene.gd" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://rs55cd8n4guk" path="res://scripts/icon-swap/group.gd" id="2_0wfyh"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://dtuo3cgr6ypwe" path="res://scripts/game-controller.gd" id="4_jyhfs"]
 [ext_resource type="Script" uid="uid://clb3fjpx8dhyx" path="res://scripts/highlight-tiles.gd" id="4_tbgi4"]
 [ext_resource type="Script" uid="uid://dr6h406bpjw16" path="res://scripts/marker.gd" id="6_tefeu"]
+[ext_resource type="Script" uid="uid://ch3uryyuppcj1" path="res://scripts/lich.gd" id="7_o6xl0"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_o5qli")
@@ -23,3 +24,6 @@ script = ExtResource("6_tefeu")
 
 [node name="GameController" type="Node2D" parent="."]
 script = ExtResource("4_jyhfs")
+
+[node name="Lich" type="Node2D" parent="."]
+script = ExtResource("7_o6xl0")
