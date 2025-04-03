@@ -6,12 +6,12 @@ extends Spell
 func cast(target=null) -> bool:
 	var cell_type := _get_target_cell_type(target)
 	
-	if cell_type == Enums.TileType.WALL:
-		var cells := _get_adyacent_cells(target)
-		tile_map_layer.set_cells_terrain_connect(cells, 0, 0, false)
-		return true
-	else:
+	if cell_type != Enums.TileType.WALL:
 		return false
+	
+	var cells := _get_adyacent_cells(target)
+	tile_map_layer.set_cells_terrain_connect(cells, 0, 0, false)
+	return true
 
 func _get_target_cell_type(target=null) -> Enums.TileType:
 	if target == null:

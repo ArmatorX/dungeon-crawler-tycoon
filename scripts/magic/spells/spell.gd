@@ -8,4 +8,4 @@ extends Node
 ## It returns true if the casting was successful, false otherwise.
 func cast(target=null) -> bool:
 	push_error("Method not implemented.")
-	return true
+	return false
