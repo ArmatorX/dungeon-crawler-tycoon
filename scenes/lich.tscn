@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://cebq2w6qqq6y8"]
+
+[ext_resource type="Script" uid="uid://ch3uryyuppcj1" path="res://scripts/lich.gd" id="1_qb1sx"]
+[ext_resource type="PackedScene" uid="uid://b765p2wdyhjyn" path="res://scenes/components/magic/magic.tscn" id="2_wrn1r"]
+[ext_resource type="PackedScene" uid="uid://djmjl7hla2llr" path="res://scenes/components/magic/spells/construct.tscn" id="3_0lr5y"]
+[ext_resource type="PackedScene" uid="uid://cjmnursl7stf0" path="res://scenes/components/magic/spells/deconstruct.tscn" id="4_wrn1r"]
+
+[node name="Lich" type="Node2D" node_paths=PackedStringArray("magic")]
+script = ExtResource("1_qb1sx")
+magic = NodePath("Magic")
+
+[node name="Magic" parent="." instance=ExtResource("2_wrn1r")]
+MAX_MAGIC = 100.0
+REGENERATION_TIME = 1.0
+REGENERATION_AMOUNT = 2.5
+
+[node name="ConstructSpell" parent="Magic" instance=ExtResource("3_0lr5y")]
+
+[node name="DeconstructSpell" parent="Magic" instance=ExtResource("4_wrn1r")]
