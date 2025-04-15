@@ -26,3 +26,10 @@ script = ExtResource("6_tefeu")
 script = ExtResource("4_jyhfs")
 
 [node name="Lich" parent="." instance=ExtResource("7_o6xl0")]
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 324)
